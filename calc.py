@@ -7,22 +7,27 @@ print("""Podaj działanie, posługując się odpowiednią liczbą:
 operation = int(input())
 if operation > 4:
     logging.info("Nie ma takiego działania")
-first_no = input("Podaj liczbę 1.: ")
-second_no = input("Podaj liczbę 2.: ")
+first_no = float(input("Podaj liczbę 1.: "))
+second_no = float(input("Podaj liczbę 2.: "))
+
 if operation == 1:
-    logging.info(f"Dodaję {first_no} i {second_no}")
+    logging.info(f"Dodaję {first_no:.2f} i {second_no:.2f}")
     sum = first_no + second_no
-    print(f"Wynik to: {sum}")
+    print(f"Wynik to: {sum:.2f}")
+
 elif operation == 2:
-    logging.info(f"Odejmuję {second_no} od {first_no}")
+    logging.info(f"Odejmuję {second_no:.2f} od {first_no:.2f}")
     sum = first_no - second_no
-    print(f"Wynik to: {sum}")
+    print(f"Wynik to: {sum:.2f}")
+
 elif operation == 3:
-    logging.info(f"Możę {first_no} i {second_no}")
+    logging.info(f"Możę {first_no:.2f} i {second_no:.2f}")
     sum = first_no * second_no
-    print(f"Wynik to: {sum}")
+    print(f"Wynik to: {sum:.2f}")
+
 elif operation == 4:
-    logging.info(f"Dzielę {first_no} przez {second_no}")
+    logging.info(f"Dzielę {first_no:.2f} przez {second_no:.2f}")
     sum = first_no / second_no
-    print(f"Wynik to: {sum}")
+    print(f"Wynik to: {sum:.2f}")
+
 
