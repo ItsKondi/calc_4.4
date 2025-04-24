@@ -8,6 +8,7 @@ operation = int(input())
 
 if operation not in [1,2,3,4]:
     logging.info("Nie ma takiego działania!!!!")
+    
 
 
 
@@ -15,8 +16,8 @@ if operation not in [1,2,3,4]:
 if operation == 1:
     how_many = int(input("Ile liczb chcesz dodać? "))
     nr_list = []
-    for i in range(1, how_many+1):
-        nr = float(input(f"Podaj {i}. liczbę: "))
+    for i in range(how_many):
+        nr = float(input(f"Podaj {i + 1}. liczbę: "))
         nr_list.append(nr)
     logging.info(f"Możę liczby {nr_list}")
     suma = sum(nr_list)
@@ -30,17 +31,21 @@ elif operation == 2:
     print(f"Wynik to: {suma:.2f}")
 
 elif operation == 3:
-    how_many = int(input("Ile liczb chcesz mnożyć? "))
-    nr_list = []
-    for i in range(1, how_many+1):
-        nr = float(input(f"Podaj {i}. liczbę: "))
-        nr_list.append(nr)
-
-    logging.info(f"Możę liczby {nr_list}")
-    suma = 1
-    for j in nr_list:
-        suma *= j
-    print(f"Wynik to: {suma:.2f}")
+    while True:
+        try:
+            how_many = int(input("Ile liczb chcesz mnożyć? "))
+            nr_list = []
+            for i in range(how_many):
+                nr = float(input(f"Podaj {i + 1}. liczbę: "))
+                nr_list.append(nr)
+            logging.info(f"Możę liczby {nr_list}")
+            suma = 1
+            for j in nr_list:
+                suma *= j
+            print(f"Wynik to: {suma:.2f}")
+            break
+        except ValueError:
+            logging.warning("Podaj powarawne dane!")
 
 elif operation == 4:
     first_no = float(input("Podaj liczbę 1.: "))
@@ -48,7 +53,6 @@ elif operation == 4:
     if second_no == 0:
         logging.warning("Dzielenie przez zero!")
         print("Nie można dzielić przez zero. Spróbuj ponownie.")
-        exit(1)
     logging.info(f"Dzielę {first_no:.2f} przez {second_no:.2f}")
     suma = first_no / second_no
     print(f"Wynik to: {suma:.2f}")
