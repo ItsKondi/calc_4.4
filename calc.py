@@ -7,27 +7,43 @@ print("""Podaj działanie, posługując się odpowiednią liczbą:
 operation = int(input())
 if operation > 4:
     logging.info("Nie ma takiego działania")
-first_no = float(input("Podaj liczbę 1.: "))
-second_no = float(input("Podaj liczbę 2.: "))
+
 
 if operation == 1:
-    logging.info(f"Dodaję {first_no:.2f} i {second_no:.2f}")
-    sum = first_no + second_no
-    print(f"Wynik to: {sum:.2f}")
+    how_many = int(input("Ile liczb chcesz dodać? "))
+    nr_list = []
+    for i in range(1, how_many+1):
+        nr = float(input(f"Podaj {i}. liczbę: "))
+        nr_list.append(nr)
+    logging.info(f"Możę liczby {nr_list}")
+    suma = sum(nr_list)
+    print(f"Wynik to: {suma:.2f}")
 
 elif operation == 2:
+    first_no = float(input("Podaj liczbę 1.: "))
+    second_no = float(input("Podaj liczbę 2.: "))
     logging.info(f"Odejmuję {second_no:.2f} od {first_no:.2f}")
-    sum = first_no - second_no
-    print(f"Wynik to: {sum:.2f}")
+    suma = first_no - second_no
+    print(f"Wynik to: {suma:.2f}")
 
 elif operation == 3:
-    logging.info(f"Możę {first_no:.2f} i {second_no:.2f}")
-    sum = first_no * second_no
-    print(f"Wynik to: {sum:.2f}")
+    how_many = int(input("Ile liczb chcesz mnożyć? "))
+    nr_list = []
+    for i in range(1, how_many+1):
+        nr = float(input(f"Podaj {i}. liczbę: "))
+        nr_list.append(nr)
+
+    logging.info(f"Możę liczby {nr_list}")
+    suma = 1
+    for j in nr_list:
+        suma *= j
+    print(f"Wynik to: {suma:.2f}")
 
 elif operation == 4:
+    first_no = float(input("Podaj liczbę 1.: "))
+    second_no = float(input("Podaj liczbę 2.: "))
     logging.info(f"Dzielę {first_no:.2f} przez {second_no:.2f}")
-    sum = first_no / second_no
-    print(f"Wynik to: {sum:.2f}")
+    suma = first_no / second_no
+    print(f"Wynik to: {suma:.2f}")
 
 
